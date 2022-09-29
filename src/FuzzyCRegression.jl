@@ -6,3 +6,4 @@ include("fit.jl")
 include("methods.jl")
 
 end
+
