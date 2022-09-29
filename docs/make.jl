@@ -6,7 +6,6 @@ DocMeta.setdocmeta!(FuzzyCRegression, :DocTestSetup, :(using FuzzyCRegression); 
 makedocs(;
     modules=[FuzzyCRegression],
     authors="Aidan Toner-Rodgers",
-    repo="https://github.com/aidantr/FuzzyCRegression.jl/blob/{commit}{path}#{line}",
     sitename="FuzzyCRegression.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
