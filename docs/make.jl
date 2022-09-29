@@ -20,6 +20,9 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/aidantr/FuzzyCRegression.jl",
-    devbranch="main",
+    repo="github.com/aidantr/FuzzyCRegression.jl.git",
+    target = "build",
+    branch = "gh-pages",
 )
+
+
