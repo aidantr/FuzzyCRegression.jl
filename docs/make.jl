@@ -22,6 +22,7 @@ deploydocs(;
     repo="github.com/aidantr/FuzzyCRegression.jl.git",
     target = "build",
     branch = "gh-pages",
+    versions = ["stable" => "v^", "v#.#" ],
 )
 
 
