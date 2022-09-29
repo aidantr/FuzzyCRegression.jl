@@ -1,5 +1,8 @@
 module FuzzyCRegression
 
-# Write your package code here.
+using DataFrames, Statistics, StatsModels, LinearAlgebra, Optim, ForwardDiff
+
+include("fit.jl")
+include("methods.jl")
 
 end
