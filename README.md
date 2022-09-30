@@ -1,4 +1,4 @@
-# FuzzyCRegression
+# FuzzyCRegression.jl
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://aidantr.github.io/FuzzyCRegression.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://aidantr.github.io/FuzzyCRegression.jl/dev/)
