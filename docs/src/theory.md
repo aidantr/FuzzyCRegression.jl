@@ -19,9 +19,9 @@ Combing these two equations, we can write the FCR objective as a continuous func
 
 ## Useful Properties
 
-1. FRC can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units into groups. While FCR remains quite efficient with large datasets, computation time for iterative approaches becomes prohibitive.
+1. FRC can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units into groups. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
 
 2. The “fuzziness” of the FCR groups is governed by the
-regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows one to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it FCR can then recover the full distribution of effects.
+regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows one to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can then recover the full distribution of effects.
 
-3. Since FCR is a GMM problem, it's asymptotic properties follow from standard arguments and we are able to derive analytic standard errors. 
+3. Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
