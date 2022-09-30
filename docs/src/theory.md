@@ -3,9 +3,7 @@
 ## FCR Objective 
 Consider a linear model with grouped heterogeneity:
 
-\begin{aligned}
-y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{g}X_i+\varepsilon_{it}
-\end{aligned}
+$$y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{g}X_i+\varepsilon_{it}$$
 where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. Fuzzy Clustering Regression (FCR) is concerned with jointly estimating $\theta$ and $\mu$ for each group.
 
 The FCR objective function takes the form:
