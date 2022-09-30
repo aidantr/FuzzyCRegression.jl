@@ -12,9 +12,3 @@ Documentation for [FuzzyCRegression.jl](https://github.com/aidantr/FuzzyCRegress
 Pages = ["theory.md", "sparse_arrays_jacs.md", "numerical_algorithms.md", "example.md", "caching.md", "diagnostics.md", "tips.md"]
 ```
 
-```@index
-```
-
-```@autodocs
-Modules = [FuzzyCRegression]
-```
