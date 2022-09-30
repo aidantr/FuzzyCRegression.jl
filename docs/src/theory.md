@@ -1,4 +1,4 @@
-# Fuzzy Clustering Regression
+# Fuzzy C-Regression
 
 ## FCR Objective 
 Consider a linear model with grouped heterogeneity:
@@ -15,7 +15,11 @@ where $m > 1$ is the regularization parameter. The weights are defined as
 $$\mu_{g}\left(y,x;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta_g x\right\Vert ^{2/\left(m-1\right)}}{\left\Vert y-\theta_h x\right\Vert ^{2/\left(m-1\right)}}\right)^{-1} \text{ for } g=1,\ldots,G$$
 
 
-Combing these two equations, we can write the FCR objective as a continuous function of only the group-specific errors $||y=\theta_gX||$. Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. This has two important implications:
+Combing these two equations, we can write the FCR objective as a continuous function of only the group-specific errors $||y=\theta_gX||$:
+
+$$J^{FCR}\left(\theta\right)=E\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g x\right\Vert ^{-2/\left(m-1\right)}\right)^{1-m}\right]$$
+
+Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. This has two important implications:
 
 ## Useful Properties
 
