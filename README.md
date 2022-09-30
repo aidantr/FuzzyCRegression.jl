@@ -20,7 +20,7 @@ julia> Pkg.add("FuzzyCRegression")
 If you use `FuzzyCRegression.jl` in your work, please cite the following:
 
 ```tex
-@article{lewis2022fuzzy,
+@article{lewis2022,
   author  = {Lewis, Daniel and Davide Melcangi and Laura Pilossph and Aidan Toner-Rodgers},
   title   = {Approximating Grouped Fixed Effects Estimation via Fuzzy Clustering Regression},
   year    = {2022},
