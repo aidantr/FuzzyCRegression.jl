@@ -16,6 +16,9 @@ makedocs(;
     pages=[
         "Home" => "index.md",
         "Fuzzy C-Regression" => "theory.md",
+        "Julia Implementation" => "package.md",
+        "API" => "API.md",
+        
     ],
 )
 
