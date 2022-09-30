@@ -3,28 +3,22 @@
 ## FCR Objective 
 Consider a linear model with grouped heterogeneity:
 
-\begin{align}
-
+\begin{aligned}
 y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{g}X_i+\varepsilon_{it}
-
-\end{align}
+\end{aligned}
 where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. Fuzzy Clustering Regression (FCR) is concerned with jointly estimating $\theta$ and $\mu$ for each group.
 
 The FCR objective function takes the form:
 
-\begin{align}
-
+\begin{aligned}
 L^{FCR}_m\left(\theta,\mu\right)=E\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g x\right\Vert ^{2}\right]
-
-\end{align}
+\end{aligned}
 
 where $m > 1$ is the regularization parameter. The weights are defined as
 
-\begin{align}
-
+\begin{aligned}
 \mu_{g}\left(y,x;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta_g x\right\Vert ^{2/\left(m-1\right)}}{\left\Vert y-\theta_h x\right\Vert ^{2/\left(m-1\right)}}\right)^{-1},g=1,\ldots,G
-
-\end{align}
+\end{aligned}
 
 Combing these two equations, we can write the FCR objective as a continuous function of only the group-specific errors $||y=\theta_gX||$. Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. This has two important implications:
 
