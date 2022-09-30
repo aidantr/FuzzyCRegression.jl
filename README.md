@@ -15,4 +15,14 @@ The [documentation](https://aidantr.github.io/FuzzyCRegression.jl/dev/) provides
 julia> Pkg.add("FuzzyCRegression")
 ```
 
+## Citation
 
+If you use `FCR.jl` in your work, please cite the following.
+
+```tex
+@article{lewis2022fuzzy,
+  author  = {Lewis, Daniel and Davide Melcangi and Laura Pilossph and Aidan Toner-Rodgers},
+  title   = {Approximating Grouped Fixed Effects Estimation via Fuzzy Clustering Regression},
+  year    = {2022},
+}
+```
