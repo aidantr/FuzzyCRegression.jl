@@ -15,7 +15,7 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
-        "FCR" => "theory.md",
+        "Fuzzy C-Regression" => "theory.md",
     ],
 )
 
