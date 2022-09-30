@@ -17,7 +17,7 @@ julia> Pkg.add("FuzzyCRegression")
 
 ## Citation
 
-If you use `FCR.jl` in your work, please cite the following:
+If you use `FuzzyCRegression.jl` in your work, please cite the following:
 
 ```tex
 @article{lewis2022fuzzy,
