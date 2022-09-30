@@ -9,7 +9,7 @@ Documentation for [FuzzyCRegression.jl](https://github.com/aidantr/FuzzyCRegress
 ## Contents
 
 ```@contents
-Pages = ["risk_adjusted_linearization.md", "sparse_arrays_jacs.md", "numerical_algorithms.md", "example.md", "caching.md", "diagnostics.md", "tips.md"]
+Pages = ["theory.md", "sparse_arrays_jacs.md", "numerical_algorithms.md", "example.md", "caching.md", "diagnostics.md", "tips.md"]
 ```
 
 ```@index
