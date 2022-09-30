@@ -8,15 +8,12 @@ where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ r
 
 The FCR objective function takes the form:
 
-\begin{aligned}
-L^{FCR}_m\left(\theta,\mu\right)=E\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g x\right\Vert ^{2}\right]
-\end{aligned}
+$$L^{FCR}_m\left(\theta,\mu\right)=E\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g x\right\Vert ^{2}\right]$$
 
 where $m > 1$ is the regularization parameter. The weights are defined as
 
-\begin{aligned}
-\mu_{g}\left(y,x;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta_g x\right\Vert ^{2/\left(m-1\right)}}{\left\Vert y-\theta_h x\right\Vert ^{2/\left(m-1\right)}}\right)^{-1},g=1,\ldots,G
-\end{aligned}
+$$\mu_{g}\left(y,x;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta_g x\right\Vert ^{2/\left(m-1\right)}}{\left\Vert y-\theta_h x\right\Vert ^{2/\left(m-1\right)}}\right)^{-1},g=1,\ldots,G$$
+
 
 Combing these two equations, we can write the FCR objective as a continuous function of only the group-specific errors $||y=\theta_gX||$. Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. This has two important implications:
 
