@@ -24,7 +24,6 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
  The package provides several methods that can be applied to fitted models. The names are similar to those in the [GLM.jl](https://juliastats.org/GLM.jl/stable/) package.
  
 - `aic`: Akaike's Information Criterion
-- `aicc`: corrected Akaike's Information Criterion for small sample sizes
 - `bic`: Bayesian Information Criterion
 - `coef`: estimates of the coefficients in the model
 - `confint`: confidence intervals for coefficients
