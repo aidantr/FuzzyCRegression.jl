@@ -33,9 +33,16 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
 - `stderror`: standard errors of the coefficients
 - `vcov`: variance-covariance matrix of the coefficient estimates
 
-## Example 
+## Simple example 
 
 We illustrate the package's functionality, we first consider estimating grouped fixed effects with no controls. 
 
+## More complicated example
 
+We now turn to a more complicated example where the data has a panel structure, we estimate heterogeneous coefficients on the independent variable for each time period, and we include a common control variable. 
+
+
+## Choosing $G$
+
+## Choosing $m$ 
  
