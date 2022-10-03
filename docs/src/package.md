@@ -16,11 +16,13 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
   - `Z` a matrix holding values of the independent variable(s) that will have homogeneous coefficient
   - `G` number of groups
   - `m` regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-  - 
+
+
+
   
   
   
  ## Methods applied to fitted models
  
- The package provides a number of methods that can be applied to fitted models:
+ The package provides several methods that can be applied to fitted models. 
  
