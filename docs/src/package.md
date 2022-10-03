@@ -16,7 +16,7 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
   - `Z` a matrix holding values of the independent variable(s) that will have homogeneous coefficients
   - `G` number of groups
   - `m` regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-  - `startvals` number of starting values for minimization algorithm (default = 100)
+  - `startvals` number of starting values for the minimization routine (default = 100)
 
  
  ## Methods applied to fitted models
