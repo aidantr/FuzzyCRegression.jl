@@ -13,11 +13,10 @@ will install the package and its dependencies.
 An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
   - `y` a vector holding values of the dependent variable
   - `X` a matrix holding values of the independent variable(s) that will have heterogeneous coefficients (the default is a constant term, which will estimate a fixed effect for each group)
-  - `Z` a matrix holding values of the independent variable(s) that will have homogeneous coefficient
+  - `Z` a matrix holding values of the independent variable(s) that will have homogeneous coefficients
   - `G` number of groups
   - `m` regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-
-
+  - `startvals` number of starting values for minimization algorithm (default = 100)
 
  
  ## Methods applied to fitted models
@@ -37,7 +36,7 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
 
 ## Example 
 
-We illustrate the package's functionality on simulated data. We first consider estimating grouped fixed effects with no controls and then plotting their distribution. 
+We illustrate the package's functionality, we first consider estimating grouped fixed effects with no controls. 
 
 
  
