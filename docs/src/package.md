@@ -34,4 +34,10 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
 - `residuals`: vector of residuals from the fitted model, using modal group membership
 - `stderror`: standard errors of the coefficients
 - `vcov`: variance-covariance matrix of the coefficient estimates
+
+## Example 
+
+We illustrate the package's functionality on simulated data. We first consider estimating grouped fixed effects with no controls and then plotting their distribution. 
+
+
  
