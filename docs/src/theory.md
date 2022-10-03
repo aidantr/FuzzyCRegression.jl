@@ -2,7 +2,7 @@
 
 Fuzzy C-Regression, or FCR, is a method for estimating heaterogeneous effects in settings with grouped patterns of heterogeneity. It can be used to estimate "grouped fixed effects," which are simply a constant term for each group, as well as heterogeneous coefficients on independent variables. 
 
-## FCR Objective 
+## FCR objective function
 Consider a linear model with grouped heterogeneity:
 
 $$y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{gt}X_{it}+\varepsilon_{it}$$
@@ -23,7 +23,7 @@ $$J^{FCR}\left(\theta\right)=E\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g x\
 
 Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. 
 
-## Useful Properties
+## Useful properties
 
 1. FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
 
