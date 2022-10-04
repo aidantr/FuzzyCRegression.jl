@@ -1,10 +1,10 @@
 
 # define FCRModel type for fitted model
 struct FCRModel
-    coef
-    value
-    y
-    X
+    coef::Vector
+    value::Real
+    y::Vector
+    X::
     Z
     unit
     timed
@@ -107,7 +107,7 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
     value = findmin(min)[1]
     coef = argmin[:,findmin(min)[2][1]]
     
-    #return Model struct
+    #return FCRModel struct
     return FCRModel(coef, value, y, X, Z, unit, timed, T, N, G, m)
 end
 

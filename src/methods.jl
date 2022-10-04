@@ -63,7 +63,7 @@ end
 """
     stderror()
 
-Standard erros from fitted model
+Standard errors from fitted model
 """
 function stderror(results::FCRModel)
     y = results.y
