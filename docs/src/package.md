@@ -41,7 +41,7 @@ The arguments for fitting the model are:
   - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
   - `unit`: unit identifier (if panel structure)
   - `time`: vector of time indicators (if panel structure)
-  - `startvals`: number of starting values for the minimization routine (default = 100)
+  - `startvals`: number of starting values for the minimization routine (default = 10)
   - `cores`: number of parallel workers (default = 1)
 
  ## Methods applied to fitted models
