@@ -3,7 +3,7 @@
 ## Installation
 
 ```julia
-Pkg.add("FuzzyCRegression")
+using Pkg; Pkg.add("FuzzyCRegression")
 ```
 will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
 
