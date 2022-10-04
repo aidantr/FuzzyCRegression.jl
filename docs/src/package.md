@@ -33,8 +33,8 @@ summarize(fcr_model)
 ```
 
 The arguments for fitting the model are:
-  - `df`: name of dataframe if passing data as a dataframe
-  - `y`: dependent variable, either as the column name in the data frame or directly as an array
+  - `df`: name of data if passing a dataframe
+  - `y`: dependent variable, either as a column name in the dataframe or directly as an array
   - `X`: independent variables with heterogeneous coefficients, either as a list of column names in the dataframe or as a matrix (default = constant term)
   - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
   - `G`: number of groups
