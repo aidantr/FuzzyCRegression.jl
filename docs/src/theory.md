@@ -1,10 +1,14 @@
 # Fuzzy C-Regression
 
-## FCR Objective 
+Fuzzy C-Regression, or FCR, is a method for estimating heterogeneous effects in settings with grouped patterns of heterogeneity. It extends the "Fuzzy C-Means" clustering algorithm to regression settings.
+
+FCR can be used to estimate "grouped fixed effects" (a constant term for each group) as well as heterogeneous coefficients on independent variables. 
+
+## FCR objective function
 Consider a linear model with grouped heterogeneity:
 
 $$y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{gt}X_{it}+\varepsilon_{it}$$
-where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. Fuzzy Clustering Regression (FCR) is concerned with jointly estimating $\theta$ and $\mu$ for each group.
+where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. FCR is concerned with jointly estimating $\theta$ and $\mu$ for each group.
 
 The FCR objective function takes the form:
 
@@ -21,10 +25,10 @@ $$J^{FCR}\left(\theta\right)=E\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g x\
 
 Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. 
 
-## Useful Properties
+## Useful properties
 
-1. FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
+  - __Fast:__ FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
 
-2. The “fuzziness” of the FCR groups is governed by the regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows one to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects.
+  - __Customizable:__ The “fuzziness” of the FCR groups is governed by the regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows one to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects.
 
-3. Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
+  - __Standard inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
