@@ -20,7 +20,7 @@ iris = dataset("datasets", "iris")
 fcr_model = fit(iris,y = "SepalWidth", x = ["1","SepalLength"], G=3, m=1.5)
 summarize(fcr_model)
 ```
-where "1" specifies a constant term. An advantage of this approach is that the coefficients are labeled by variable name.
+where "1" specifies a constant term. An advantage of this approach is that the estimated coefficients are labeled by variable name.
 
 Alternatively, the data can be passed directly as arrays:
 
