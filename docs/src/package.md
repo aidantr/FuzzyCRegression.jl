@@ -9,6 +9,7 @@ Pkg.add("FuzzyCRegression")
 will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
 
 ## Fitting the FCR model
+There are two ways to fit an FCR model, using DataFrames and using simple arrays. The model is fit on a DataFrame (from the DataFrames.jl package) using `fit(df,y_name,x_name,G,m,...)`
 
 An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
   - `y` a vector holding values of the dependent variable
@@ -34,12 +35,11 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
 
 ## Simple example 
 
-We illustrate the package's functionality, we first consider estimating grouped fixed effects with no controls. 
+To illustrate the package's functionality, we start with a simple example estimating grouped fixed effects with no controls. 
 
 ## More complicated example
 
 We now turn to a more complicated example where the data has a panel structure, we estimate heterogeneous coefficients on the independent variable for each time period, and we include a common control variable. 
-
 
 ## Choosing $G$
 
