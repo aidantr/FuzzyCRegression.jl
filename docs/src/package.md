@@ -17,7 +17,7 @@ using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(iris,y = "SepalWidth", x = ["1","SepalLength"], G=3, m=1.5)
+fcr_model = fit(iris,y = "SepalWidth", x = ["1","SepalLength"], G = 3, m = 1.5)
 summarize(fcr_model)
 ```
 where "1" specifies a constant term. An advantage of this approach is that the estimated coefficients are labeled by variable name.
@@ -28,11 +28,14 @@ Alternatively, the data can be passed directly as arrays:
 y = iris.SepalWidth
 X = [ones(length(y)) iris.SepalLength]
 
-fcr_model = fit(y, X, G=3, m=1.5)
+fcr_model = fit(y, X, G = 3, m = 1.5)
 summarize(fcr_model)
 ```
 
-The optional arguments for fitting the model are:
+The arguments for fitting the model are:
+  - `df`: name of dataframe if passing data as a dataframe
+  - `y`: dependent variable, either as the column name in the data frame or directly as an array
+  - `X`: independent variables with heterogeneous coefficients, either as a list of column names in the dataframe or as a matrix (default = constant term)
   - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
   - `G`: number of groups
   - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
