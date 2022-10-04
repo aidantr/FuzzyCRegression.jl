@@ -39,6 +39,8 @@ The optional arguments for fitting the model are:
   - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
   - `G`: number of groups
   - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
+  - `unit`: unit identifier (if panel structure)
+  - `time`: vector of time indicators (if panel structure)
   - `startvals`: number of starting values for the minimization routine (default = 100)
   - `cores`: number of parallel workers (default = 1)
 
