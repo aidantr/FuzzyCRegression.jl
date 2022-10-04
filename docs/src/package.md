@@ -12,12 +12,12 @@ will install the package and its dependencies, which include [Optim.jl](https://
 There are two ways to fit an FCR model, using DataFrames and using simple arrays. The model is fit on a DataFrame (from the DataFrames.jl package) using `fit(df,y_name,x_name,G,m,...)`
 
 An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
-  - `y` a vector holding values of the dependent variable
-  - `X` a matrix holding values of the independent variable(s) that will have heterogeneous coefficients (the default is a constant term, which will estimate a fixed effect for each group)
-  - `Z` a matrix holding values of the independent variable(s) that will have homogeneous coefficients
-  - `G` number of groups
-  - `m` regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-  - `startvals` number of starting values for the minimization routine (default = 100)
+  - `y`: a vector holding values of the dependent variable
+  - `X`: a matrix holding values of the independent variable(s) that will have heterogeneous coefficients (the default is a constant term, which will estimate a fixed effect for each group)
+  - `Z`: a matrix holding values of the independent variable(s) that will have homogeneous coefficients
+  - `G`: number of groups
+  - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
+  - `startvals`: number of starting values for the minimization routine (default = 100)
 
  
  ## Methods applied to fitted models
