@@ -27,8 +27,8 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
 ## Useful properties
 
-  - ___Fast:___ FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
+  - __Fast:__ FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
 
-  - ___Customizable:___ The “fuzziness” of the FCR groups is governed by the regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows the estimator to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects.
+  - __Customizable:__ The “fuzziness” of the FCR groups is governed by the regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows the estimator to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects.
 
-  - ___Inference:___ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
+  - __Inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
