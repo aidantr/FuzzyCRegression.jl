@@ -25,9 +25,6 @@ where "1" specifies a constant term. An advantage of this approach is that the e
 Alternatively, the data can be passed directly as arrays:
 
 ```julia
-using FuzzyCRegression, RDatasets
-
-iris = dataset("datasets", "iris")
 y = iris.SepalWidth
 X = [ones(length(y)) iris.SepalLength]
 
