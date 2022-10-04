@@ -31,4 +31,4 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
   - __Customizable:__ The “fuzziness” of the FCR groups is governed by the regularization parameter $m$, where group assignment becomes binary as $m \rightarrow 1$. Choosing $m$ allows one to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects.
 
-  - __Standard inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
+  - __Inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors. 
