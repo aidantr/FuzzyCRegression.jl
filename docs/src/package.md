@@ -5,11 +5,21 @@
 ```julia
 Pkg.add("FuzzyCRegression")
 ```
-
 will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
 
 ## Fitting the FCR model
-There are two ways to fit an FCR model, using DataFrames and using simple arrays. The model is fit on a DataFrame (from the DataFrames.jl package) using `fit(df,y_name,x_name,G,m,...)`
+There are two ways to fit an FCR model, using DataFrames or using simple arrays. 
+
+If the dataset is stored in a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y_name,x_names,G,m,...)`, where the independent and dependent variables are referenced using their column names. For example, using the dataset from the [RDatasets](https://github.com/JuliaStats/RDatasets.jl) package,
+
+```julia
+using FuzzyCRegression, RDatasets
+
+iris = dataset("datasets", "iris")
+fcr_model = fit(iris,y_names = "SepalWidth", x_names = c("Constant","SepalLength), G=3, m=1.5)
+```
+
+The model is fit on a DataFrame (from the DataFrames.jl package) using `fit(df,y_name,x_name,G,m,...)`
 
 An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
   - `y`: a vector holding values of the dependent variable
