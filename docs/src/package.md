@@ -17,7 +17,7 @@ using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(iris,y_names = "SepalWidth", x_names = c("1","SepalLength"), G=3, m=1.5)
+fcr_model = fit(iris,y_names = "SepalWidth", x_names = ["1","SepalLength"], G=3, m=1.5)
 summarize(fcr_model)
 ```
 where "1" specifies a constant term. An advantage of this approach is that the coefficients are labeled by variable name.
