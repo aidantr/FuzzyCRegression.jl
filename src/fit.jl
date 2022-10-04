@@ -1,10 +1,10 @@
 
 # define FCRModel type for fitted model
 struct FCRModel
-    coef::Vector
-    value::Real
-    y::Vector
-    X::
+    coef
+    value
+    y
+    X
     Z
     unit
     timed
