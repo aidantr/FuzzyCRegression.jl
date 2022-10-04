@@ -4,7 +4,6 @@
     aic()
 
 Calculates Aikike Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
-
 """
 function aic(results::FCRModel; criterion = "AIC")
     #grab data
@@ -30,7 +29,6 @@ end
 bic()
 
 Calculates Bayesian Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
-
 """
 function bic(results::FCRModel)
     #grab data
@@ -191,11 +189,67 @@ function vcov(results::FCRModel)
 end
 
 """
-    weight()
+    weights()
 
-Calculate group weights for fitted model
+Calculate group weights from fitted model, using modal group membership
 """
-function coef(results::FCRModel)
+function weights(results::FCRModel)
+    y = results.y
+    X = results.X
+    Z = results.Z
+    G = results.G
+    T = results.T
+    timed = results.timed
+    N = results.N
+    coefs = results.coeff
+
+    #create matrix of error terms
+    m = max(m,1.1) 
+    coefmat = [reshape(coefs[1:G*T*(size(X,2))],(G,T*size(X,2)))  repeat(coefs[G*T*(size(X,2))+1:end]',G)]'
+    ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
+    ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
+    ϵ_g = repeat(ϵ,1,1,G)
+
+    #weights 
+    return reshape(sum((reshape(ϵ_g[:,:,1],(N,1,G))./ϵ_g).^(1/(m-1)),dims=2).^(-1),(N,G))
+end
+
+"""
+    predict()
+
+Obtain predicted values of the dependent variable from the fitted model, using modal group membership
+"""
+function predict(results::FCRModel)
+    y = results.y
+    X = results.X
+    Z = results.Z
+    G = results.G
+    T = results.T
+    timed = results.timed
+    N = results.N
+    coefs = results.coeff
+
+    #create matrix of error terms
+    m = max(m,1.1) 
+    coefmat = [reshape(coefs[1:G*T*(size(X,2))],(G,T*size(X,2)))  repeat(coefs[G*T*(size(X,2))+1:end]',G)]'
+    ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
+    
+
+
+
+    ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
+    ϵ_g = repeat(ϵ,1,1,G)
+
+    #weights 
+    return reshape(sum((reshape(ϵ_g[:,:,1],(N,1,G))./ϵ_g).^(1/(m-1)),dims=2).^(-1),(N,G))
+end
+
+"""
+    residuals()
+
+Get the vector of residuals from the fitted model
+"""
+function residuals(results::FCRModel)
     y = results.y
     X = results.X
     Z = results.Z
@@ -220,7 +274,7 @@ end
 """
     distribution()
 
-Calculates distribution of weighted coefficients for fitted model
+Calculates distribution of weighted coefficients from fitted model
 
 # Arguments
 - `results::Model` Model type from fcr output
