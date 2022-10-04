@@ -8,9 +8,9 @@ Pkg.add("FuzzyCRegression")
 will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
 
 ## Fitting the FCR model
-There are two ways to fit an FCR model, using DataFrames or using arrays. 
+There are two ways to fit an FCR model, using DataFrames or arrays. 
 
-If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y_name,x_names,G,m,...)`, where the independent and dependent variables are referenced using their column names. For example, using the iris dataset from the [RDatasets](https://github.com/JuliaStats/RDatasets.jl) package:
+If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y_name,x_names,G,m,...)`, where the  variables are referenced using their column names. For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
 
 ```julia
 using FuzzyCRegression, RDatasets
@@ -59,6 +59,15 @@ The optional arguments for fitting the model are:
 - `summarize`: summarize model results
 - `vcov`: variance-covariance matrix of the coefficient estimates
 
+For example, to plot the distribution of coefficients from the previous example, we could type:
+
+```julia
+using Gadfly
+
+SepalLength_coefs = distribution(fcr_model,"SepalLength")
+plot(SepalLength_coefs, geom.hist)
+
+```
 ## Simple example 
 
 To illustrate the package's functionality, we start with a simple example estimating grouped fixed effects with no controls. 
