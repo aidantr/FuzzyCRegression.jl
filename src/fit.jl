@@ -1,11 +1,8 @@
 
-# Model struct for function output
-struct Model
+# define FCRModel type for fitted model
+struct FCRModel
     coef
-    stderror
     value
-    weight
-    vcov
     y
     X
     Z
@@ -72,19 +69,9 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
     end
     N = ÷(length(y), T)
 
-    """
-        objective(a)
-
-    returns the value of the FCR objective function
-
-    # Arguments
-    - `a::Array`: vector of coefficients, where first G*T*size(X,2) are heterogeneous coefficients
-    and the final size(Z,2) are common coefficients
-
-    """
     function objective(a)
-
         #create matrix of error terms 
+        m = max(m,1.1)
         amat = [reshape(a[1:G*T*(size(X,2))],(G,T*size(X,2))) repeat(a[G*T*(size(X,2))+1:end]',G)]'
         ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*amat,(T,N,G)),[2,1,3])
         ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
@@ -95,54 +82,6 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
 
         #value of objective function:
         return (sum(sum((wgt.^m).*ϵ,dims=2),dims=1)[1,1,1])/(N*T)
-
-    end
-
-    """
-        wgts()
-
-    calculates N x G matrix of group weights for each unit given vector of coefficients `a::Array`
-    """
-    function wgts(a)
-
-        #create matrix of error terms 
-        amat = [reshape(a[1:G*T*(size(X,2))],(G,T*size(X,2)))  repeat(a[G*T*(size(X,2))+1:end]',G)]'
-        ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*amat,(T,N,G)),[2,1,3])
-        ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
-        ϵ_g = repeat(ϵ,1,1,G)
-
-        #weights 
-        return reshape(sum((reshape(ϵ_g[:,:,1],(N,1,G))./ϵ_g).^(1/(m-1)),dims=2).^(-1),(N,G))
-
-    end
-
-    """
-        fcrgradient()
-
-    takes in coefficient vector `a:Array` and calculates matrix of unit-specific gradients for standard errors
-    """
-    function fcrgradient(a)
-        function unit_gradient(a,n) 
-            function unit_objective(a)
-                #create matrix of error terms 
-                amat = [reshape(a[1:G*T*(size(X,2))],(G,T*size(X,2)))  repeat(a[G*T*(size(X,2))+1:end]',G)]'
-                ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*amat,(T,N,G)),[2,1,3])
-                ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
-                ϵ_g = repeat(ϵ,1,1,G)
-
-                #weights 
-                wgt = reshape(sum((reshape(ϵ_g[:,:,1],(N,1,G))./ϵ_g).^(1/(m-1)),dims=2).^(-1),(N,G))
-
-                #value of objective function for each unit
-                (sum((wgt.^m).*ϵ,dims=2)[n,1,1])/(N*T)
-            end
-            return ForwardDiff.gradient(unit_objective,a)
-        end
-        GRAD = zeros(G*T*size(X,2)+size(Z,2),N)
-        for i = 1:N
-            GRAD[:,i] = unit_gradient(a,i)
-        end
-        return GRAD
     end
 
     # homogeneous specification
@@ -167,20 +106,9 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
     # select minimizing coefficients across starting values
     value = findmin(min)[1]
     coef = argmin[:,findmin(min)[2][1]]
-    weight = wgts(coef)
-
-    # calculate standard errors
-    # gradient and hessian at minimum
-    H = ForwardDiff.hessian(objective,coef)
-    GRAD = fcrgradient(coef)
-    #sandwich matrix
-    V = GRAD*GRAD'
-    # variance covariance matrix
-    vcov = (inv(H./N)*(V./N)*inv(H./N))./N
-    stderror = diag(vcov).^(1/2)
-
+    
     #return Model struct
-    return Model(coef, stderror, value, weight, vcov, y, X, Z, unit, timed, T, N, G, m)
+    return FCRModel(coef, value, y, X, Z, unit, timed, T, N, G, m)
 end
 
 
