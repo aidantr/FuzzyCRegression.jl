@@ -27,8 +27,7 @@ An FCR model is fit using `fit(y,X,G,m,...)`. The arguments are
 - `bic`: Bayesian Information Criterion
 - `coef`: estimates of the coefficients in the model
 - `confint`: confidence intervals for coefficients
-- `fitted`: fitted values of the model, using modal group membership
-- `predict`: predicted values of the dependent variable from the fitted model, using modal group membership
+- `predict`: obtain predicted values of the dependent variable from the fitted model, using modal group membership
 - `residuals`: vector of residuals from the fitted model, using modal group membership
 - `stderror`: standard errors of the coefficients
 - `vcov`: variance-covariance matrix of the coefficient estimates
