@@ -10,23 +10,23 @@ will install the package and its dependencies, which include [Optim.jl](https://
 ## Fitting the FCR model
 There are two ways to fit an FCR model, depending on whether the data is stored as a DataFrame or as a set of arrays.
 
-If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` specifies the number of groups and `m` represents the regularization parameter, where group membership becomes less fuzzy as `m` approaches 1. For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
+If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` and `m` specify the number of groups and regularization parameter, respectively. For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
 
 ```julia
 using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(iris,y = "SepalWidth", x = ["1","SepalLength"], G = 3, m = 1.5)
+fcr_model = fit(iris,y = "SepalLength", x = ["SepalWidth", "PetalWidth"], G = 3, m = 1.5)
 summarize(fcr_model)
 ```
-where "1" specifies a constant term. An advantage of this approach is that the estimated coefficients are labeled by variable name.
+An advantage of this approach is that the estimated coefficients are labeled by variable name.
 
 Alternatively, the data can be passed directly as arrays:
 
 ```julia
-y = iris.SepalWidth
-X = [ones(length(y)) iris.SepalLength]
+y = iris.SepalLength
+X = [iris.SepalWidth iris.PetalWidth]
 
 fcr_model = fit(y, X, G = 3, m = 1.5)
 summarize(fcr_model)
@@ -59,7 +59,7 @@ The arguments for fitting the model are:
 - `summarize`: summarize model results
 - `vcov`: variance-covariance matrix of the coefficient estimates
 
-For example, to plot the distribution of coefficients on SepalLength from the previous fitted model:
+For example, to plot the distribution of coefficients on SepalWidth from the previous fitted model:
 
 ```julia
 SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
