@@ -45,7 +45,7 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
 ## Package installation
 
-FuzzyCRegressions.jl can be installed using
+FuzzyCRegressions.jl can be installed using:
 
 ```julia
 Pkg.add("FuzzyCRegression")
