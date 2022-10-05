@@ -45,12 +45,12 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
 ## Installation
 
-FuzzyCRegression.jl is a Julia package implementing the Fuzzy C-Regression estimator.
+The FuzzyCRegressions.jl package can be installed from the Julia REPL with
 
 ```julia
-using Pkg; Pkg.add("FuzzyCRegression")
+julia> ]add Gadfly
 ```
-will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
+The closing square bracket switches to the package manager interface and the `add` command installs the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation. To return to the Julia REPL hit the `delete` key.
 
 ## Fitting the FCR model
 There are two ways to fit an FCR model, depending on whether the data is stored as a DataFrame or as a set of arrays.
