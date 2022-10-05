@@ -114,22 +114,10 @@ plot(SepalWidth_coefs, Geom.hist)
 ```
 ![](assets/iris_plot.svg)
 
-## Simple example 
-
-To illustrate the package's functionality, we start with a simple example estimating grouped fixed effects with no controls. 
-
-## More complicated example
-
-We now turn to a more complicated example where the data has a panel structure, we estimate heterogeneous coefficients on the independent variable for each time period, and we include a common control variable. 
-
 ## Choosing $G$
 
 ## Choosing $m$ 
 
-## Contents
 
-```@contents
-Pages = ["theory.md", "package.md", "API.md"]
-```
 
 
