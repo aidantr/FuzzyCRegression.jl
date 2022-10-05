@@ -64,10 +64,11 @@ For example, to plot the distribution of coefficients on SepalLength from the pr
 ```julia
 using Gadfly
 
-SepalLength_coefs = distribution(fcr_model,"SepalLength")
-plot(SepalLength_coefs, geom.hist)
-
+SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
+plot(SepalWidth_coefs, Geom.hist)
 ```
+!(assets/iris_plot.pdf)
+
 ## Simple example 
 
 To illustrate the package's functionality, we start with a simple example estimating grouped fixed effects with no controls. 
