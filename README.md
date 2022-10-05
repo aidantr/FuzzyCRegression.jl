@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/aidantr/FuzzyCRegression.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/aidantr/FuzzyCRegression.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/aidantr/FuzzyCRegression.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/aidantr/FuzzyCRegression.jl)
 
-This package implements the heterogeneous effects estimator from Lewis, Melcangi, Pilossoph, and Toner-Rodgers in Julia. 
+This package implements the heterogeneous effects estimator from [Lewis, Melcangi, Pilossoph, and Toner-Rodgers (2022)](https://drive.google.com/file/d/1U_MJHtJcB7H1Edv3xceilU_HJoxhLssP/view) in Julia. 
 
 The [documentation](https://aidantr.github.io/FuzzyCRegression.jl/dev/) briefly describes the estimator and introduces the `FuzzyCRegression.jl` package through several examples.
 
