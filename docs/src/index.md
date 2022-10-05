@@ -48,7 +48,7 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 The FuzzyCRegressions.jl package can be installed from the Julia REPL with
 
 ```julia
-julia> ]add Gadfly
+julia> ]add FuzzyCRegression
 ```
 The closing square bracket switches to the package manager interface and the `add` command installs the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation. To return to the Julia REPL hit the `delete` key.
 
