@@ -43,7 +43,7 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
   - __Inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and we are able to derive analytic standard errors.
 
-## Installation
+## Package installation
 
 FuzzyCRegressions.jl can be installed using
 
