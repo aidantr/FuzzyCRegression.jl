@@ -62,12 +62,12 @@ The arguments for fitting the model are:
 For example, to plot the distribution of coefficients on SepalLength from the previous example:
 
 ```julia
-using Gadfly
-
 SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
+
+using Gadfly
 plot(SepalWidth_coefs, Geom.hist)
 ```
-!(assets/iris_plot.pdf)
+!(/assets/iris_plot.svg)
 
 ## Simple example 
 
