@@ -33,14 +33,14 @@ summarize(fcr_model)
 ```
 
 The arguments for fitting the model are:
-  - `df`: name of data if passing a dataframe
-  - `y`: dependent variable, either as a column name in the dataframe or directly as an array
-  - `X`: independent variables with heterogeneous coefficients, either as a list of column names in the dataframe or as a matrix (default = constant term)
+  - `df`: name of dataframe (if missing, data must be passed as arrays)
+  - `y`: column name or array holding values of the dependent variable
+  - `X`: a list of column names or a matrix holding values of the independent variable(s) with heterogeneous coefficients (defaults to a constant)
   - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
   - `G`: number of groups
   - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-  - `unit`: unit identifier (if panel structure)
-  - `time`: vector of time indicators (if panel structure)
+  - `unit`: column name or array with unit identifier (if panel structure)
+  - `time`: column name or array with time indicators (if panel structure)
   - `startvals`: number of starting values for the minimization routine (default = 10)
   - `cores`: number of parallel workers (default = 1)
 
