@@ -37,7 +37,23 @@ Implements fuzzy clustering regression estimator from Lewis, Melcangi, Pilossoph
 - `SE::Vector`: standard errors (optional)
 - `objective::Number` value of objective function at minimum
 """
-function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals=10,parallel=false)
+function fit(;df=nothing,y=nothing,unit=nothing, X=nothing, Z=nothing,t=nothing,G=3,m=1.1,startvals=10,parallel=false)
+    if ≠(df,nothing)
+        y = df[:,y]
+        if ≠(X,nothing)
+            X = df[:,X]
+        elseif ≠(Z,nothing)
+            Z = df[:,Z]
+        elseif ≠(unit,nothing)
+            unit = df[:,unit]
+        elseif ≠(t,nothing)
+            t = df[:,t]
+        end
+    end
+
+    if unit === nothing
+        unit = collect(1:length(y))
+    end
     #sort vectors
     y = y[sortperm(unit)]
 
@@ -48,7 +64,7 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
     end
 
     if Z === nothing 
-        Z = Array{Any}(undef,size(y),0)
+        Z = Array{Any}(undef,length(y),0)
     else 
         Z = Z[sortperm(unit),:]
     end
@@ -67,6 +83,7 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
     else 
         timed = ones(length(y),1)
     end
+
     N = ÷(length(y), T)
 
     function objective(a)
@@ -86,9 +103,9 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
 
     # homogeneous specification
     if T > 1
-        baseline = [ones(length(y)) Z timed]\y 
+        baseline = ([ones(length(y)) Z timed]'*[ones(length(y)) Z timed])\([ones(length(y)) Z timed]'*y)
     else 
-        baseline = [ones(length(y)) Z]\y 
+        baseline =([ones(length(y)) Z]'*[ones(length(y)) Z])\([ones(length(y)) Z]'*y)
     end
 
     # pre-allocate
@@ -97,7 +114,11 @@ function fit(;y,unit=nothing, X=nothing, Z=nothing,t=nothing,G=2,m=1.1,startvals
 
     #loop over starting values
     for i=1:startvals
-        sval = [rand(G*T*size(X,2)); baseline[2:size(Z,2)+1]]
+        if size(Z,2) > 0
+            sval = [rand(G*T*size(X,2)); baseline[2:size(Z,2)+1]]
+        else
+            sval = rand(G*T*size(X,2))
+        end
         results = optimize(objective, sval, LBFGS(),autodiff=:forward)   
         min[i] = results.minimum
         argmin[:,i] = results.minimizer
