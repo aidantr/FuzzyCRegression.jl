@@ -10,7 +10,7 @@ In panel settings, each unit belongs to the same group over time, meaning that s
 Consider a linear model with grouped heterogeneity:
 
 $$y = \sum_{g=1}^G\mu_{g} \theta_{g}X+\varepsilon$$
-where $X_{i}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g}$ represent group weights. FCR is concerned with jointly estimating $\theta$ and $\mu$ for each group.
+where $X$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g}$ represent group weights. FCR is concerned with jointly estimating $\theta$ and $\mu$ for each group.
 
 The FCR objective function takes the form:
 
