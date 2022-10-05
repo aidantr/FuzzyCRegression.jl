@@ -46,7 +46,7 @@ The arguments for fitting the model are:
 
  ## Methods applied to fitted models
  
- The package provides several methods that can be applied to fitted models. The names are similar to those in the [GLM.jl](https://juliastats.org/GLM.jl/stable/) package.
+ The package provides several methods that can be applied to fitted models. The names are similar to those in the [GLM.jl](https://juliastats.org/GLM.jl/stable/) package. Full documentation for these methods can be found [here](https://aidantr.github.io/FuzzyCRegression.jl/dev/API/).
  
 - `aic`: Akaike's Information Criterion
 - `bic`: Bayesian Information Criterion
