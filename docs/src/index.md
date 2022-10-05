@@ -14,7 +14,7 @@ FCR can be used to estimate ["grouped fixed effects"](https://onlinelibrary.wile
 
 In panel settings, each unit belongs to the same group over time, meaning that separate coefficients are estimated for each group-time pair.
 
-### FCR objective function
+#### FCR objective function
 Consider a linear model with grouped heterogeneity:
 
 $$y = \sum_{g=1}^G\mu_{g} \theta_{g}X+\varepsilon$$
@@ -35,7 +35,7 @@ $$J^{FCR}\left(\theta\right)=E\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g x\
 
 Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. 
 
-### Useful properties
+#### Useful properties
 
   - __Fast:__ FCR can be solved in a single step through standard non-linear minimization. This makes it substantially faster than previous approaches, which require iteration over all possible groupings of units. While FCR remains quite efficient with large datasets, computation times for iterative algorithms become prohibitive.
 
