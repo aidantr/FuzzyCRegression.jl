@@ -1,4 +1,4 @@
-# FuzzyCRegression Tutorial
+# FuzzyCRegression.jl package
 
 ## Installation
 
