@@ -22,7 +22,7 @@ where $X$ are covariates (which could simply be a constant), $\theta_{g}$ repres
 
 The FCR objective function takes the form:
 
-$$L^{FCR}_m\left(\theta,\mu\right)=E\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g X\right\Vert ^{2}\right]$$
+$$L^{FCR}_m\left(\theta,\mu\right)=\mathbb{E}\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g X\right\Vert ^{2}\right]$$
 
 where $m > 1$ is the regularization parameter. The weights are defined as
 
