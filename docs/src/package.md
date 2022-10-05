@@ -59,7 +59,7 @@ The arguments for fitting the model are:
 - `summarize`: summarize model results
 - `vcov`: variance-covariance matrix of the coefficient estimates
 
-For example, to plot the distribution of coefficients on SepalLength from the previous example:
+For example, to plot the distribution of coefficients on SepalLength from the previous fitted model:
 
 ```julia
 SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
