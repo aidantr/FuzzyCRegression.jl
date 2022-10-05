@@ -1,6 +1,6 @@
 # Fuzzy C-Regression
 
-Fuzzy C-Regression, or FCR, is a method for estimating heterogeneous effects in settings with grouped patterns of heterogeneity. It extends the "Fuzzy C-Means" clustering algorithm to regression settings.
+Fuzzy C-Regression (FCR) is a method for estimating heterogeneous effects in settings with grouped patterns of heterogeneity. It extends the "Fuzzy C-Means" clustering algorithm to regression settings.
 
 FCR can be used to estimate ["grouped fixed effects"](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA11319) (a constant term for each group) as well as heterogeneous coefficients. 
 
