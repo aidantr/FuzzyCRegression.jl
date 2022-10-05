@@ -7,8 +7,8 @@ FCR can be used to estimate ["grouped fixed effects"](https://onlinelibrary.wile
 ## FCR objective function
 Consider a linear model with grouped heterogeneity:
 
-$$y_{it} = \sum_{g=1}^G\mu_{g(i)} \theta_{gt}X_{it}+\varepsilon_{it}$$
-where $X_{it}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. FCR is concerned with jointly estimating $\theta$ and $\mu$ for each group.
+$$y_{i} = \sum_{g=1}^G\mu_{g(i)} \theta_{g}X_{i}+\varepsilon_{i}$$
+where $X_{i}$ are covariates (which could simply be a constant), $\theta_{g}$ represent group-specific coefficients for groups $g=1,\ldots,G$, and $\mu_{g(i)}$ represent group weights for unit $i$. FCR is concerned with jointly estimating $\theta$ and $\mu$ for each group.
 
 The FCR objective function takes the form:
 
