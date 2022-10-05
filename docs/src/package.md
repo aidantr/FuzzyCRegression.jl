@@ -67,7 +67,7 @@ SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
 using Gadfly
 plot(SepalWidth_coefs, Geom.hist)
 ```
-!(/assets/iris_plot.svg)
+!(assets/iris_plot.svg)
 
 ## Simple example 
 
