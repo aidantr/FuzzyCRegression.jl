@@ -55,7 +55,7 @@ The closing square bracket switches to the package manager interface and the `ad
 ## Fitting the FCR model
 There are two ways to fit an FCR model, depending on whether the data is stored as a DataFrame or as a set of arrays.
 
-If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` and `m` specify the number of groups and regularization parameter, respectively (tips for selecting these options are discussed below). For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
+If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` specifies the number of groups and `m` sets the regularization parameter, where group membership becomes binary as `m` approaches 1 (tips for selecting these options are discussed below). For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
 
 ```julia
 using FuzzyCRegression, RDatasets
