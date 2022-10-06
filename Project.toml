@@ -20,7 +20,7 @@ Documenter = "0.27"
 ForwardDiff = "0.10"
 LinearAlgebra = "1"
 Optim = "1"
-PrettyTables = "2"
+PrettyTables = "1,2"
 Statistics = "1"
 julia = "1"
 
