@@ -7,7 +7,6 @@ using LinearAlgebra
 using Optim
 using PrettyTables
 using Statistics
-using StatsModels
 
 include("fit.jl")
 include("methods.jl")
