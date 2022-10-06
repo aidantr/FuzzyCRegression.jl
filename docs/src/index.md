@@ -62,7 +62,7 @@ using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(df = iris,y = "SepalLength", x = ["SepalWidth", "PetalWidth"], G = 3, m = 1.5)
+fcr_model = fit(df=iris, y="SepalLength", X=["SepalWidth","PetalWidth"], G=3, m=1.5)
 summarize(fcr_model)
 ```
 An advantage of this approach is that the estimated coefficients in the regression output are labeled by variable name.
@@ -70,7 +70,7 @@ An advantage of this approach is that the estimated coefficients in the regressi
 Alternatively, the data can be passed directly as arrays:
 
 ```julia
-fcr_model = fit(y = iris.SepalLength, X = [iris.SepalWidth iris.PetalWidth], G = 3, m = 1.5)
+fcr_model = fit(y=iris.SepalLength, X=[iris.SepalWidth iris.PetalWidth], G=3, m=1.5)
 summarize(fcr_model)
 ```
 
