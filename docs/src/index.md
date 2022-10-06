@@ -129,23 +129,24 @@ For example, continuing with the iris dataset, the minimum of the AIC and BIC pl
 ```julia
 using FuzzyCRegression, Gadfly
 
-#calculate the 3 criteriors for G=1 to G=15
-IC = zeros(15,3)
+IC = zeros(15,2)
 for g = 1:15
-    fcr_model = fit(...)
-    IC[g,1] = bic(fcr_model)
-    IC[g,1] = bic(fcr_model)
-    QC[g,1] = hqc(fcr_model)
+    fcr_model = fit(df=iris, y=["SepalLength"], X=["SepalWidth","PetalWidth"], G=g, m=1.5)
+    IC[g,1] = aic(fcr_model)
+    IC[g,2] = bic(fcr_model)
 end
 IC_norm = IC./sqrt(sum(IC.^2,1))
 
-plot(x=1:15, y=IC_norm, Geom.point, Geom.line)
+plot(x=collect(1:15), y=IC_norm, Geom.point, Geom.line)
 ```
 ![](assets/bic_plot.svg)
 
 
 ## Choosing $m$ 
 
+The regularization parameter $m$ determines the "fuzziness" of the FCR groups. Fuzzy clusters are helpful for two reasons:
+ 1. First, even in settings with discrete unobserved heterogeneity, noise means that group membership cannot be ascertained with certainty. Thus,             probabilistic clustering improves performance.
+ 2. Second, in many applications heterogeneity may be continuous, and the fuzzy clusters allow to FCR to approximate its distribution.
 
 
 
