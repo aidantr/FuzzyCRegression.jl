@@ -39,7 +39,7 @@ Thus, for fixed $m$, the FCR function is differentiable and can be written as a 
 
   - __Customizable:__ Choosing the fuzzy tuning parameter $m$ allows FCR to better accommodate the uncertainty of group membership in realistic datasets, where noise means that cluster membership cannot be ascertained with certainty. Moreover, it means that FCR can recover the full distribution of effects when heterogeneity is not fully discrete.
 
-  - __Inference:__ Since FCR is a GMM problem, it's asymptotic properties follow from standard theory and provide analytic standard errors.
+  - __Inference:__ Since FCR is a GMM problem, analytic standard errors can be derived from standard theory.
 
 ## Package installation
 
