@@ -122,7 +122,7 @@ plot(SepalWidth_coefs, Geom.hist)
 ![](assets/iris_plot.svg)
 
 ## Choosing $G$
-The package includes several data-driven approaches to choosing $G$. In particular, the `aic`, `bic`, and `hqc` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
+The package provides several data-driven approaches for choosing $G$. In particular, the `aic`, `bic`, and `hqc` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
 
 For example, continuing with the iris dataset:
 
