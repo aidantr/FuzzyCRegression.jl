@@ -84,11 +84,11 @@ fcr_model = fit(y=iris.PetalLength, X=[iris.SepalWidth iris.SepalLength], G=3, m
 
 The arguments for fitting the model are:
   - `df`: name of dataframe (if missing, data must be passed as arrays)
-  - `y`: column name or array holding values of the dependent variable
-  - `X`: a list of column names or a matrix holding values of the independent variable(s) with heterogeneous coefficients (defaults to a constant)
+  - `y`: column name or array holding values of the dependent variable (required)
+  - `X`: a list of column names or a matrix holding values of the independent variable(s) with heterogeneous coefficients (required)
   - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
-  - `G`: number of groups
-  - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
+  - `G`: number of groups (required)
+  - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$ (default = 1.5)
   - `unit`: column name or array with unit identifier (if panel structure)
   - `time`: column name or array with time indicators (if panel structure)
   - `startvals`: number of starting values for the minimization routine (default = 10)
@@ -145,6 +145,3 @@ plot(x=collect(1:15), y=IC_norm, Geom.point, Geom.line)
 The regularization parameter $m$ determines the "fuzziness" of the FCR groups. Fuzzy clusters are helpful for two reasons:
  1. First, even in settings with discrete unobserved heterogeneity, noise means that group membership cannot be ascertained with certainty. Thus,             probabilistic clustering improves performance.
  2. Second, in many applications heterogeneity may be continuous, and the fuzzy clusters allow to FCR to approximate its distribution.
-
-
-
