@@ -129,17 +129,20 @@ For example, continuing with the iris dataset:
 ```julia
 using FuzzyCRegression, Gadfly
 
-IC = zeros(10,3)
+#calculate the 3 criteriors for G=1 to G=15
+IC = zeros(15,3)
 for g = 1:15
     fcr_model = fit(...)
     IC[g,1] = bic(fcr_model)
     IC[g,1] = bic(fcr_model)
     QC[g,1] = hqc(fcr_model)
 end
+IC_norm = IC./sqrt(sum(IC.^2,1))
 
-plot(x=1:10,y=IC,Geom.connected)
-
+plot(x=1:15, y=IC_norm, Geom.point, Geom.line)
 ```
+![](assets/bic_plot.svg)
+
 
 ## Choosing $m$ 
 
