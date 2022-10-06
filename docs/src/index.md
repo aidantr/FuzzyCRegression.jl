@@ -31,7 +31,7 @@ $$\mu_{g}\left(y,X;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta
 
 Combing these two equations, we can write the FCR objective as a continuous function of only the group-specific errors $||y-\theta_gX||$:
 
-$$J^{FCR}\left(\theta\right)=E\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g X\right\Vert ^{-2/\left(m-1\right)}\right)^{1-m}\right]$$
+$$J^{FCR}\left(\theta\right)=\mathbb{E}\left[\left(\sum_{g=1}^{G}\left\Vert y-\theta_g X\right\Vert ^{-2/\left(m-1\right)}\right)^{1-m}\right]$$
 
 Thus, for fixed $m$, the FCR function is differentiable and can be written as a standard GMM problem. 
 
