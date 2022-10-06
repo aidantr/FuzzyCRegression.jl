@@ -1,83 +1,14 @@
-# FuzzyCRegression.jl tutorial
+# Examples
 
-## Installation
+We now illustrate the FCR estimator through two examples.
 
-```julia
-using Pkg; Pkg.add("FuzzyCRegression")
-```
-will install the package and its dependencies, which include [Optim.jl](https://julianlsolvers.github.io/Optim.jl/stable/) for minimization and [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) for automatic differentiation.
+We first consider the setting of [Bonhomme, Lamadon, and Manresa (2019)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA15722) who consider wage determination with two-sided firm and worker heterogeneity.
 
-## Fitting the FCR model
-There are two ways to fit an FCR model, depending on whether the data is stored as a DataFrame or as a set of arrays.
+Second, we use labor market transitions to classify workers into types, using the dataset of [Ahn (2022)](https://onlinelibrary.wiley.com/doi/abs/10.1002/jae.2940).
 
-If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` and `m` specify the number of groups and regularization parameter, respectively. For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
+## Example 1: firm effects
 
-```julia
-using FuzzyCRegression, RDatasets
 
-iris = dataset("datasets", "iris")
+## Example 2: worker types
 
-fcr_model = fit(df = iris,y = "SepalLength", x = ["SepalWidth", "PetalWidth"], G = 3, m = 1.5)
-summarize(fcr_model)
-```
-An advantage of this approach is that the estimated coefficients are labeled by variable name.
-
-Alternatively, the data can be passed directly as arrays:
-
-```julia
-y = iris.SepalLength
-X = [iris.SepalWidth iris.PetalWidth]
-
-fcr_model = fit(y, X, G = 3, m = 1.5)
-summarize(fcr_model)
-```
-
-The arguments for fitting the model are:
-  - `df`: name of dataframe (if missing, data must be passed as arrays)
-  - `y`: column name or array holding values of the dependent variable
-  - `X`: a list of column names or a matrix holding values of the independent variable(s) with heterogeneous coefficients (defaults to a constant)
-  - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
-  - `G`: number of groups
-  - `m`: regularization parameter (greater than 1), where group assignment becomes binary as $m \rightarrow 1$
-  - `unit`: column name or array with unit identifier (if panel structure)
-  - `time`: column name or array with time indicators (if panel structure)
-  - `startvals`: number of starting values for the minimization routine (default = 10)
-  - `cores`: number of parallel workers (default = 1)
-
- ## Methods applied to fitted models
- 
- The package provides several methods that can be applied to fitted models. The names are similar to those in the [GLM.jl](https://juliastats.org/GLM.jl/stable/) package. Full documentation for these methods can be found [here](https://aidantr.github.io/FuzzyCRegression.jl/dev/API/).
- 
-- `aic`: Akaike's Information Criterion
-- `bic`: Bayesian Information Criterion
-- `coef`: estimates of the coefficients in the model
-- `confint`: confidence intervals for coefficients
-- `distribution`: distribution of coefficients using group weights
-- `predict`: obtain predicted values of the dependent variable from the fitted model, using modal group membership
-- `residuals`: vector of residuals from the fitted model, using modal group membership
-- `stderror`: standard errors of the coefficients
-- `summarize`: summarize model results
-- `vcov`: variance-covariance matrix of the coefficient estimates
-
-For example, to plot the distribution of coefficients on SepalWidth from the fitted model above:
-
-```julia
-SepalWidth_coefs = distribution(fcr_model,"SepalWidth")
-
-using Gadfly
-plot(SepalWidth_coefs, Geom.hist)
-```
-![](assets/iris_plot.svg)
-
-## Simple example 
-
-To illustrate the package's functionality, we start with a simple example estimating grouped fixed effects with no controls. 
-
-## More complicated example
-
-We now turn to a more complicated example where the data has a panel structure, we estimate heterogeneous coefficients on the independent variable for each time period, and we include a common control variable. 
-
-## Choosing $G$
-
-## Choosing $m$ 
  
