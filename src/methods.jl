@@ -4,23 +4,23 @@ aic()
 Calculates Aikike Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
 """
 function aic(results::FCRModel; criterion = "AIC")
-#grab data
-y = results.y
-X = results.X
-Z = results.Z
-G = results.G
-T = results.T
-timed = results.timed
-N = results.N
+    #grab data
+    y = results.y
+    X = results.X
+    Z = results.Z
+    G = results.G
+    T = results.Tx
+    timed = results.timed
+    N = results.N
 
-# matrix of error terms
-coefmat = [reshape(results.coef[1:G*T*(size(X,2))],(G,T*size(X,2))) repeat(results.coef[G*T*(size(X,2))+1:end]',G)]'
-ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
-ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
+    # matrix of error terms
+    coefmat = [reshape(results.coef[1:G*T*(size(X,2))],(G,T*size(X,2))) repeat(results.coef[G*T*(size(X,2))+1:end]',G)]'
+    ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
+    ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
 
-# calculate criterion
-K = length(results.coef)
-return N*log(sum(sum(abs.(ϵ),dims=2),dims=1)[1,1]/N)+2*K
+    # calculate criterion
+    K = length(results.coef)
+    return N*log(sum(sum(abs.(ϵ),dims=2),dims=1)[1,1]/N)+2*K
 end
 
 """
@@ -29,23 +29,23 @@ bic()
 Calculates Bayesian Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
 """
 function bic(results::FCRModel)
-#grab data
-y = results.y
-X = results.X
-Z = results.Z
-G = results.G
-T = results.T
-timed = results.timed
-N = results.N
+    #grab data
+    y = results.y
+    X = results.X
+    Z = results.Z
+    G = results.G
+    T = results.T
+    timed = results.timed
+    N = results.N
 
-# matrix of error terms
-coefmat = [reshape(results.coef[1:G*T*(size(X,2))],(G,T*size(X,2))) repeat(results.coef[G*T*(size(X,2))+1:end]',G)]'
-ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
-ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
+    # matrix of error terms
+    coefmat = [reshape(results.coef[1:G*T*(size(X,2))],(G,T*size(X,2))) repeat(results.coef[G*T*(size(X,2))+1:end]',G)]'
+    ϵ = permutedims(reshape(repeat(y,1,G) - [X.*timed Z]*coefmat,(T,N,G)),[2,1,3])
+    ϵ = reshape(sum(ϵ.^2,dims=2),(N,G))
 
-# calculate criterion
-K = length(results.coef)
-return N*log(sum(sum(abs.(ϵ),dims=2),dims=1)[1,1]/N)+2*K*log(N)
+    # calculate criterion
+    K = length(results.coef)
+    return N*log(sum(sum(abs.(ϵ),dims=2),dims=1)[1,1]/N)+2*K*log(N)
 
 end
 
@@ -333,8 +333,6 @@ function coefnames(results::FCRModel)
     end
     return coef_names
 end
-
-
 
 
 
