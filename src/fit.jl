@@ -1,6 +1,9 @@
-
-# define FCRModel type for fitted model
+ # define FCRModel type for fitted model
 struct FCRModel
+    df
+    y_name
+    X_names
+    Z_names
     coef
     value
     y
@@ -37,18 +40,25 @@ Implements fuzzy clustering regression estimator from Lewis, Melcangi, Pilossoph
 - `SE::Vector`: standard errors (optional)
 - `objective::Number` value of objective function at minimum
 """
-function fit(;df=nothing,y=nothing,unit=nothing, X=nothing, Z=nothing,t=nothing,G=3,m=1.1,startvals=10,parallel=false)
+function fit(;df=nothing,y,X,Z=nothing,unit=nothing,t=nothing,G,m=1.5,startvals=10,parallel=false)
     if ≠(df,nothing)
-        y = df[:,y]
+        y_name = y
+        X_names = X
+        Z_names = Z
+        y = Matrix(df[:,y])
         if ≠(X,nothing)
-            X = df[:,X]
+            X = Matrix(df[:,X])
         elseif ≠(Z,nothing)
-            Z = df[:,Z]
+            Z = Matrix(df[:,Z])
         elseif ≠(unit,nothing)
-            unit = df[:,unit]
+            unit = Matrix(df[:,unit])
         elseif ≠(t,nothing)
-            t = df[:,t]
+            t = Matrix(df[:,t])
         end
+    else
+        X_names = nothing
+        y_name = nothing
+        Z_names = nothing
     end
 
     if unit === nothing
@@ -56,12 +66,8 @@ function fit(;df=nothing,y=nothing,unit=nothing, X=nothing, Z=nothing,t=nothing,
     end
     #sort vectors
     y = y[sortperm(unit)]
+    X = X[sortperm(unit),:]
 
-    if X === nothing
-        X = ones(length(y),1)
-    else
-        X = X[sortperm(unit),:]
-    end
 
     if Z === nothing 
         Z = Array{Any}(undef,length(y),0)
@@ -128,8 +134,8 @@ function fit(;df=nothing,y=nothing,unit=nothing, X=nothing, Z=nothing,t=nothing,
     value = findmin(min)[1]
     coef = argmin[:,findmin(min)[2][1]]
     
-    #return FCRModel struct
-    return FCRModel(coef, value, y, X, Z, unit, timed, T, N, G, m)
+    #return FCRModel type
+    return FCRModel(df, y_name, X_names, Z_names,coef, value, y, X, Z, unit, timed, T, N, G, m)
 end
 
 
