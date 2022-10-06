@@ -122,6 +122,24 @@ plot(SepalWidth_coefs, Geom.hist)
 ![](assets/iris_plot.svg)
 
 ## Choosing $G$
+The package includes several data-driven approaches to choosing $G$. In particular, the `aic`, `bic`, and `hqc` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
+
+For example, continuing with the iris dataset:
+
+```julia
+using FuzzyCRegression, Gadfly
+
+IC = zeros(10,3)
+for g = 1:15
+    fcr_model = fit(...)
+    IC[g,1] = bic(fcr_model)
+    IC[g,1] = bic(fcr_model)
+    QC[g,1] = hqc(fcr_model)
+end
+
+plot(x=1:10,y=IC,Geom.connected)
+
+```
 
 ## Choosing $m$ 
 
