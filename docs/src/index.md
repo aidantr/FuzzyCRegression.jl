@@ -12,8 +12,6 @@ Fuzzy C-Regression (FCR) is a method for estimating heterogeneous effects in set
 
 FCR can be used to estimate ["grouped fixed effects"](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA11319) (a constant term for each group) as well as heterogeneous coefficients.
 
-In panel settings, each unit belongs to the same group over time, meaning that separate coefficients are estimated for each group-time pair.
-
 #### FCR objective function
 Consider a linear model with grouped heterogeneity:
 
