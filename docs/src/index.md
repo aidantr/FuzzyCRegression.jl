@@ -70,10 +70,7 @@ An advantage of this approach is that the estimated coefficients in the regressi
 Alternatively, the data can be passed directly as arrays:
 
 ```julia
-y = iris.SepalLength
-X = [iris.SepalWidth iris.PetalWidth]
-
-fcr_model = fit(y, X, G = 3, m = 1.5)
+fcr_model = fit(y = iris.SepalLength, X = [iris.SepalWidth iris.PetalWidth], G = 3, m = 1.5)
 summarize(fcr_model)
 ```
 
