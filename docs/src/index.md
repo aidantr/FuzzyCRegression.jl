@@ -62,7 +62,7 @@ using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(df=iris, y=["SepalLength"], X=["SepalWidth","PetalWidth"], G=3, m=1.5)
+fcr_model = fit(df=iris, y=["PetalLength"], X=["SepalWidth","PetalWidth"], G=3, m=1.5)
 summarize(fcr_model)
 
  ────────────────────────────────────────────────────────────────────────────────────────────
@@ -81,7 +81,7 @@ An advantage of this approach is that the estimated coefficients in the regressi
 Alternatively, the data can be passed directly as arrays:
 
 ```julia
-fcr_model = fit(y=iris.SepalLength, X=[iris.SepalWidth iris.PetalWidth], G=3, m=1.5)
+fcr_model = fit(y=iris.PetalLength, X=[iris.SepalWidth iris.SepalLength], G=3, m=1.5)
 ```
 
 The arguments for fitting the model are:
@@ -122,9 +122,9 @@ plot(SepalWidth_coefs, Geom.hist)
 ![](assets/iris_plot.svg)
 
 ## Choosing $G$
-The package provides several data-driven approaches for choosing the number of groups. In particular, the `aic`, `bic`, and `hqc` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
+The package provides several data-driven approaches for choosing the number of groups. In particular, the `aic`and `bic` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
 
-For example, continuing with the iris dataset, the minimum of the AIC and BIC plotted for $G=1$ to $G=15$ indicate that the optimal group number is 3 or 4 according to these criteria.
+For example, continuing with the iris dataset, the minimum of the AIC and BIC indicate that the optimal group number is 3 or 4 according to these criteria.
 
 ```julia
 using FuzzyCRegression, Gadfly
