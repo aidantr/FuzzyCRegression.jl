@@ -124,7 +124,7 @@ plot(SepalWidth_coefs, Geom.hist)
 ## Choosing $G$
 The package provides several data-driven approaches for choosing the number of groups. In particular, the `aic`, `bic`, and `hqc` methods calculate information criteria that trade off the fit of the model against the number of parameters. 
 
-For example, continuing with the iris dataset, we plot the AIC and BIC for $G=1$ to $G=15$. The minimum of these plots indicates the optimal group number according to these criteria.
+For example, continuing with the iris dataset, the minimum of the AIC and BIC plotted for $G=1$ to $G=15$ indicate that the optimal group number is 3 or 4 according to these criteria.
 
 ```julia
 using FuzzyCRegression, Gadfly
