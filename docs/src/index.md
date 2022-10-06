@@ -62,7 +62,7 @@ using FuzzyCRegression, RDatasets
 
 iris = dataset("datasets", "iris")
 
-fcr_model = fit(df=iris, y="SepalLength", X=["SepalWidth","PetalWidth"], G=3, m=1.5)
+fcr_model = fit(df=iris, y=["SepalLength"], X=["SepalWidth","PetalWidth"], G=3, m=1.5)
 summarize(fcr_model)
 
  ───────────────────────────────────────────────────────────────────────────────────────────
