@@ -24,7 +24,7 @@ The FCR objective function takes the form:
 
 $$L^{FCR}_m\left(\theta,\mu\right)=\mathbb{E}\left[\sum_{g=1}^{G}\mu_{g}^{m}\left\Vert y-\theta_g X\right\Vert ^{2}\right]$$
 
-where $m > 1$ is the regularization parameter. The weights are defined as
+where $m > 1$ is a regularization parameter governing the "fuzziness" of the FCR clusters (group membership becomes binary as $m \rightarrow 1$. The weights are defined as
 
 $$\mu_{g}\left(y,X;\theta,m\right)=\left(\sum_{h=1}^{G}\frac{\left\Vert y-\theta_g X\right\Vert ^{2/\left(m-1\right)}}{\left\Vert y-\theta_h X\right\Vert ^{2/\left(m-1\right)}}\right)^{-1} \text{ for } g=1,\ldots,G$$
 
