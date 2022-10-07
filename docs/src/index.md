@@ -6,7 +6,7 @@ CurrentModule = FuzzyCRegression
 
 This package implements the heterogeneous effects estimator from [Lewis, Melcangi, Pilossoph, and Toner-Rodgers (2022)](https://drive.google.com/file/d/1U_MJHtJcB7H1Edv3xceilU_HJoxhLssP/view) in Julia. 
 
-## Fuzzy C-Regression estimator
+## Fuzzy C-Regression
 
 Fuzzy C-Regression (FCR) is a method for estimating heterogeneous effects in settings with grouped patterns of unobserved heterogeneity. It extends the "Fuzzy C-Means" clustering algorithm to regression settings.
 
