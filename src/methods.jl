@@ -1,5 +1,5 @@
 """
-aic()
+    aic()
 
 Calculates Aikike Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
 """
@@ -24,7 +24,7 @@ function aic(results::FCRModel; criterion = "AIC")
 end
 
 """
-bic()
+    bic()
 
 Calculates Bayesian Inforation Criteria for fitted FCR model, used for selecting optimal number of groups
 """
@@ -50,7 +50,7 @@ function bic(results::FCRModel)
 end
 
 """
-coef()
+    coef()
 
 Extract coefficients from fitted model
 """
@@ -59,7 +59,7 @@ function coef(results::FCRModel)
 end
 
 """
-stderror()
+    stderror()
 
 Standard errors from fitted model
 """
@@ -125,7 +125,7 @@ function stderror(results::FCRModel)
 end
 
 """
-vcov()
+    vcov()
 
 Variance covariance matrix from fitted model
 """
@@ -189,7 +189,7 @@ function vcov(results::FCRModel)
 end
 
 """
-weights()
+    weights()
 
 Calculate group weights from fitted model, using modal group membership
 """
@@ -216,7 +216,7 @@ function weights(results::FCRModel)
 end
 
 """
-predict()
+    predict()
 
 Obtain predicted values of the dependent variable from the fitted model, using modal group membership
 """
@@ -235,12 +235,12 @@ end
 
 
 """
-distribution()
+    distribution()
 
 Calculates distribution of weighted coefficients from fitted model
 
 # Arguments
-- `results::Model` Model type from fcr output
+- `results::FCRModel` Model type from fcr output
 - `index::Integer` Column index of variable in X matrix to calculate coefficient distibution for (defaults to 1)
 """
 function distribution(results::FCRModel; index = 1)
@@ -305,7 +305,6 @@ end
     summarize()
 
 Summarizes results from fitted model
-
 """
 function summarize(results::FCRModel;level=0.95)
     cc = coef(results)
@@ -336,8 +335,8 @@ end
 """
     confint()
 
-Summarizes results from fitted model
-
+Returns lower and upper confidence interval for fitted model, for specified significance level
+(default = 0.95)
 """
 function confint(results::FCRModel;level=0.95)
     cc = coef(results)

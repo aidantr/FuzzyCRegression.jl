@@ -20,25 +20,19 @@ end
  """
     fit()
 
-Implements fuzzy clustering regression estimator from Lewis, Melcangi, Pilossoph, and Toner-Rodgers (2022)
+Fits the FCR model
 
 # Arguments
-- `y::Vector` dependent var
-- `x::Matrix` variables with heterogeneous coefficients (defaults to vector of 1's for FEs)
-- `Z:matrix` matrix of controls
-- `unit:Vector` vector of unit IDs
-- `t::Vector` time vector (optional)
-- `G::Integer` number of groups (default = 2)
-- `m::Real` fuzzy tuning parameter
-- `startvals::Integer` number of starting values (default = 1,000)
-- `cores::Integer` number of cores (default = 1)
-
-# Returns:
- `struct` with the following methods:
-- `coefficients::Vector`: vector of coefficients
-- `weights::Matrix`: group weights
-- `SE::Vector`: standard errors (optional)
-- `objective::Number` value of objective function at minimum
+    - `df`: name of dataframe (if missing, data must be passed as arrays)
+    - `y`: column name or array holding values of the dependent variable (required)
+    - `X`: a list of column names or a matrix holding values of the independent variable(s) with heterogeneous coefficients (required)
+    - `Z`: a list of column names or a matrix holding values of the independent variable(s) with homogeneous coefficients
+    - `G`: number of groups (required)
+    - `m`: regularization parameter (greater than 1), where group assignment becomes binary as m approaches 1 (default = 1.5)
+    - `unit`: column name or array with unit identifier (if panel structure)
+    - `time`: column name or array with time indicators (if panel structure)
+    - `startvals`: number of starting values for the minimization routine (default = 100)
+    - `cores`: number of parallel workers (default = 1)
 """
 function fit(;df=nothing,y,X,Z=nothing,unit=nothing,t=nothing,G,m=1.5,startvals=10,parallel=false)
     if ≠(df,nothing)
