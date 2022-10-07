@@ -53,7 +53,9 @@ This adds the latest version of the package and its dependencies, which include 
 ## Fitting the FCR model
 There are two ways to fit an FCR model, depending on whether the data is stored as a DataFrame or as a set of arrays.
 
-If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` specifies the number of groups and `m` sets the regularization parameter (tips for selecting these options are discussed below). For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
+If the dataset is stored as a [DataFrame](https://dataframes.juliadata.org/stable/), the model can be fit using `fit(df,y,X,G,m,...)`, where the variables are referenced by their column names. `G` specifies the number of groups and `m` sets the regularization parameter (tips for selecting these options are discussed below). `fit` returns an object of type `FCRModel`, to which a number of methods can be applied.
+
+For example, using the iris dataset from [RDatasets](https://github.com/JuliaStats/RDatasets.jl):
 
 ```julia
 using FuzzyCRegression, RDatasets
@@ -96,7 +98,7 @@ The arguments for fitting the model are:
 
  ## Methods applied to fitted models
  
- The package provides several methods that can be applied to fitted models. The names are similar to those in [GLM.jl](https://juliastats.org/GLM.jl/stable/). Full documentation for these methods can be found [here](https://aidantr.github.io/FuzzyCRegression.jl/dev/API/).
+ The package provides several methods that can be applied to fitted models. The names are similar to those in [GLM.jl](https://juliastats.org/GLM.jl/stable/). Full documentation for these functions can be found [here](https://aidantr.github.io/FuzzyCRegression.jl/dev/API/).
  
 - `aic`: Akaike's Information Criterion
 - `bic`: Bayesian Information Criterion
