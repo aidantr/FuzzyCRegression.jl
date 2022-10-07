@@ -4,7 +4,7 @@ CurrentModule = FuzzyCRegression
 
 # FuzzyCRegression.jl manual
 
-This package implements the heterogeneous effects estimator from [Lewis, Melcangi, Pilossoph, and Toner-Rodgers (2022)](https://drive.google.com/file/d/1U_MJHtJcB7H1Edv3xceilU_HJoxhLssP/view) in Julia. 
+This package implements the heterogeneous effects estimator from [Lewis, Melcangi, Pilossoph, and Toner-Rodgers (2022)](https://drive.google.com/file/d/1U_MJHtJcB7H1Edv3xceilU_HJoxhLssP/view) in Julia. The source code can be found [here](https://github.com/aidantr/FuzzyCRegression.jl).
 
 ## Fuzzy C-Regression
 
