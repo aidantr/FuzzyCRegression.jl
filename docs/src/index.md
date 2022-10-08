@@ -105,7 +105,7 @@ The arguments for fitting the model are:
 - `coef`: estimates of the coefficients in the model
 - `confint`: confidence intervals for coefficients
 - `distribution`: distribution of coefficients using group weights
-- `predict`: obtain predicted values of the dependent variable from the fitted model, using modal group membership
+- `predict`: predicted values of the dependent variable from the fitted model, using modal group membership
 - `residuals`: vector of residuals from the fitted model, using modal group membership
 - `stderror`: standard errors of the coefficients
 - `summarize`: summarize model results
