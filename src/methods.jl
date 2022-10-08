@@ -107,7 +107,7 @@ function stderror(results::FCRModel)
             return ForwardDiff.gradient(unit_objective,a)
         end
         GRAD = zeros(G*T*size(X,2)+size(Z,2),N)
-        for i = 1:N
+        for i in 1:N
             GRAD[:,i] = unit_gradient(a,i)
         end
         return GRAD
@@ -265,10 +265,10 @@ function coefnames(results::FCRModel)
     X_names = results.X_names
     Z_names = results.Z_names
     coef_names = Array{String}(undef, size(X,2)*G*T+size(Z,2))
-    for X_var = 1:size(X,2) 
-        for g = 1:G
+    for X_var in 1:size(X,2) 
+        for g in 1:G
             if T>1
-                for t = 1:T
+                for t in 1:T
                     if results.df === nothing
                         newname = string("X",X_var," (g=",g,", t=",t,")")
                     else
@@ -287,7 +287,7 @@ function coefnames(results::FCRModel)
         end
     end
     if size(Z,2) > 0
-        for Z_var = 1:size(Z,2)
+        for Z_var in 1:size(Z,2)
             if results.df === nothing
                 newname = string("Z",Z_var)
             else

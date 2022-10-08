@@ -113,7 +113,7 @@ function fit(;df=nothing,y,X,Z=nothing,unit=nothing,t=nothing,G,m=1.5,startvals=
     min = zeros(startvals,1)
 
     #loop over starting values
-    for i=1:startvals
+    for i in 1:startvals
         if size(Z,2) > 0
             sval = [rand(G*T*size(X,2)); baseline[2:size(Z,2)+1]]
         else
